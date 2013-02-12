@@ -13,9 +13,11 @@ namespace Run00.CodeCoverageAnalysis.WindowsConsole
 	{
 		static void Main(string[] args)
 		{
+			var percentage = default(int);
+			var minimum = default(int);
 			try
 			{
-				//args = new string[] { @"-r=C:\TeamCity\buildAgent\work\498206cac5de9896\UnitTest.coverage" };
+				args = new string[] { @"-r=C:\TeamCity\buildAgent\work\498206cac5de9896\UnitTest.coverage", "-m=95" };
 				Console.WriteLine("Starting: Code Coverage Analysis...");
 
 				var processDir = Path.GetDirectoryName(typeof(Program).Assembly.Location);
@@ -33,7 +35,19 @@ namespace Run00.CodeCoverageAnalysis.WindowsConsole
 				Console.WriteLine("\tAnalyzing: " + options.ReportPath);
 				var result = analyzer.Analyze(options.ReportPath);
 
-				Console.WriteLine(result);
+				Console.WriteLine("\tLinesCovered: " + result.LinesCovered);
+				Console.WriteLine("\tLinesNotCovered: " + result.LinesNotCovered);
+				Console.WriteLine("\tLinesPartiallyCovered: " + result.LinesPartiallyCovered);
+
+				var totalLines = result.LinesCovered + result.LinesNotCovered + result.LinesPartiallyCovered;
+				Console.WriteLine("\tTotal Lines: " + totalLines);
+
+				var calcPercent = (double)(result.LinesNotCovered + result.LinesPartiallyCovered) / (double)totalLines;
+				percentage = (int)Math.Truncate(100 - (calcPercent * 100));
+				minimum = options.MinimumCoverage;
+				Console.WriteLine("\tReported: " + percentage + "% Covered");
+				Console.WriteLine("\tMinimum Required: " + options.MinimumCoverage + "%");
+
 			}
 			catch (ProgramOptionException ex)
 			{
@@ -44,6 +58,9 @@ namespace Run00.CodeCoverageAnalysis.WindowsConsole
 				Console.WriteLine(ex);
 			}
 
+			if (percentage < minimum)
+				throw new Exception("Coverage of %" + percentage + " is below required minimum of %" + minimum);
+
 			Console.WriteLine("Exiting: Build Runner");
 		}
 
@@ -51,7 +68,8 @@ namespace Run00.CodeCoverageAnalysis.WindowsConsole
 		{
 			var result = new ProgramOptions();
 			var options = new OptionSet() {
-				{"r=","The {PATH} of the code coverage report to run analysis on. If [NULL], build will fail.", s => result.ReportPath = s },
+				{"r=","The {PATH} of the code coverage report to run analysis on.", s => result.ReportPath = s },
+				{"m=","The {MINIMUM} of the code covered or an exception will be thrown.", m => result.MinimumCoverage = int.Parse(m) },
 			};
 			options.Parse(args);
 
