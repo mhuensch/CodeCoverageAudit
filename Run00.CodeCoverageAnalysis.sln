@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{3FA6054E-0870-47CF-8CCD-4839049D30FC}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Run00.CodeCoverageAnalysis.WindowsConsole", "Run00.CodeCoverageAnalysis.WindowsConsole\Run00.CodeCoverageAnalysis.WindowsConsole.csproj", "{A2BC0A60-AAD3-4BFC-8B89-A82DDE94BA9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Run00.CodeCoverageAnalysis", "Run00.CodeCoverageAnalysis\Run00.CodeCoverageAnalysis.csproj", "{E0530329-77D0-4465-B280-18105B12582D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Run00.CodeCoverageAnalysis.VsCoverage", "Run00.CodeCoverageAnalysis.VsTest\Run00.CodeCoverageAnalysis.VsCoverage.csproj", "{705F9880-7A13-4341-B827-7BF0A4DC0977}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReportingLibs", "ReportingLibs", "{78535D35-2ABC-48B8-84C9-4F013A36DF69}"
+	ProjectSection(SolutionItems) = preProject
+		ReportingLibs\Microsoft.VisualStudio.Coverage.Analysis.dll = ReportingLibs\Microsoft.VisualStudio.Coverage.Analysis.dll
+		ReportingLibs\Microsoft.VisualStudio.Coverage.Interop.dll = ReportingLibs\Microsoft.VisualStudio.Coverage.Interop.dll
+		ReportingLibs\Microsoft.VisualStudio.Coverage.Symbols.dll = ReportingLibs\Microsoft.VisualStudio.Coverage.Symbols.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2BC0A60-AAD3-4BFC-8B89-A82DDE94BA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2BC0A60-AAD3-4BFC-8B89-A82DDE94BA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2BC0A60-AAD3-4BFC-8B89-A82DDE94BA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2BC0A60-AAD3-4BFC-8B89-A82DDE94BA9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0530329-77D0-4465-B280-18105B12582D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0530329-77D0-4465-B280-18105B12582D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0530329-77D0-4465-B280-18105B12582D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0530329-77D0-4465-B280-18105B12582D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{705F9880-7A13-4341-B827-7BF0A4DC0977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{705F9880-7A13-4341-B827-7BF0A4DC0977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{705F9880-7A13-4341-B827-7BF0A4DC0977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{705F9880-7A13-4341-B827-7BF0A4DC0977}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
