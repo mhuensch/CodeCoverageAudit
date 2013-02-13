@@ -3,7 +3,7 @@ using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using System.Diagnostics.Contracts;
 
-namespace Run00.CodeCoverageAnalysis.WindowsConsole
+namespace Run00.CodeCoverageAudit.WindowsConsole
 {
 	public class Installer : IWindsorInstaller
 	{

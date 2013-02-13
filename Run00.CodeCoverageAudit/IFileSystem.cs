@@ -1,5 +1,5 @@
 ﻿
-namespace Run00.CodeCoverageAnalysis
+namespace Run00.CodeCoverageAudit
 {
 	public interface IFileSystem
 	{

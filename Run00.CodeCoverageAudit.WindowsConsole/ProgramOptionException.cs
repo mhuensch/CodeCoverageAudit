@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Run00.CodeCoverageAnalysis.WindowsConsole
+namespace Run00.CodeCoverageAudit.WindowsConsole
 {
 	public class ProgramOptionException : ArgumentException
 	{

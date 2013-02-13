@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace Run00.CodeCoverageAnalysis.WindowsConsole
+namespace Run00.CodeCoverageAudit.WindowsConsole
 {
 	public class FileSystem : IFileSystem
 	{

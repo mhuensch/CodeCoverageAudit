@@ -1,4 +1,4 @@
-﻿namespace Run00.CodeCoverageAnalysis.WindowsConsole
+﻿namespace Run00.CodeCoverageAudit.WindowsConsole
 {
 	class ProgramOptions
 	{

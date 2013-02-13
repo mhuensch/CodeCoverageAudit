@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Run00.CodeCoverageAnalysis.VsCoverage
+namespace Run00.CodeCoverageAudit.VsCoverage
 {
 	public class ReportAnalyzer : IReportAnalyzer
 	{

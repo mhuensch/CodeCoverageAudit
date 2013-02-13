@@ -7,7 +7,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace Run00.CodeCoverageAnalysis.WindowsConsole
+namespace Run00.CodeCoverageAudit.WindowsConsole
 {
 	class Program
 	{
