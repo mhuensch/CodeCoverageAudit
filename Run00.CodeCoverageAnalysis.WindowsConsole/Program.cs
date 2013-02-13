@@ -13,11 +13,8 @@ namespace Run00.CodeCoverageAnalysis.WindowsConsole
 	{
 		static void Main(string[] args)
 		{
-			var percentage = default(int);
-			var minimum = default(int);
 			try
 			{
-				args = new string[] { @"-r=C:\TeamCity\buildAgent\work\498206cac5de9896\UnitTest.coverage", "-m=95" };
 				Console.WriteLine("Starting: Code Coverage Analysis...");
 
 				var processDir = Path.GetDirectoryName(typeof(Program).Assembly.Location);
@@ -38,28 +35,23 @@ namespace Run00.CodeCoverageAnalysis.WindowsConsole
 				Console.WriteLine("\tLinesCovered: " + result.LinesCovered);
 				Console.WriteLine("\tLinesNotCovered: " + result.LinesNotCovered);
 				Console.WriteLine("\tLinesPartiallyCovered: " + result.LinesPartiallyCovered);
-
-				var totalLines = result.LinesCovered + result.LinesNotCovered + result.LinesPartiallyCovered;
-				Console.WriteLine("\tTotal Lines: " + totalLines);
-
-				var calcPercent = (double)(result.LinesNotCovered + result.LinesPartiallyCovered) / (double)totalLines;
-				percentage = (int)Math.Truncate(100 - (calcPercent * 100));
-				minimum = options.MinimumCoverage;
-				Console.WriteLine("\tReported: " + percentage + "% Covered");
+				Console.WriteLine("\tTotal Lines: " + result.Lines);
+				Console.WriteLine("\tReported: " + result.PercentageCovered + "% Covered");
 				Console.WriteLine("\tMinimum Required: " + options.MinimumCoverage + "%");
 
+				if (result.PercentageCovered < options.MinimumCoverage)
+					throw new Exception("Coverage of %" + result.PercentageCovered + " is below required minimum of %" + options.MinimumCoverage);
 			}
 			catch (ProgramOptionException ex)
 			{
 				Console.WriteLine(ex.Message);
+				throw;
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex);
+				throw;
 			}
-
-			if (percentage < minimum)
-				throw new Exception("Coverage of %" + percentage + " is below required minimum of %" + minimum);
 
 			Console.WriteLine("Exiting: Build Runner");
 		}

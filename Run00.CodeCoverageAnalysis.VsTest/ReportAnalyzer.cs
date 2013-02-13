@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.Coverage.Analysis;
+using System;
 using System.Collections.Generic;
 
 namespace Run00.CodeCoverageAnalysis.VsCoverage
@@ -22,6 +23,10 @@ namespace Run00.CodeCoverageAnalysis.VsCoverage
 					}
 				}
 			}
+
+			result.Lines = result.LinesCovered + result.LinesNotCovered + result.LinesPartiallyCovered;
+			var calcPercent = (double)(result.LinesNotCovered + result.LinesPartiallyCovered) / (double)result.Lines;
+			result.PercentageCovered = (uint)Math.Truncate(100 - (calcPercent * 100));
 
 			return result;
 		}
