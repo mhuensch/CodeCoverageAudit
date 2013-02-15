@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Run00.CodeCoverageAudit.WindowsConsole")]
+[assembly: AssemblyTitle("Run00.CodeCoverageAudit.Commands")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Run00.CodeCoverageAudit.WindowsConsole")]
+[assembly: AssemblyProduct("Run00.CodeCoverageAudit.Commands")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3ea31088-1a69-4ebb-8c64-ea6c8481cff1")]
+[assembly: Guid("61ad245b-abd9-40bb-b2f1-6e5c43cdb1e9")]
 
 // Version information for an assembly consists of the following four values:
 //

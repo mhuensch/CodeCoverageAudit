@@ -1,6 +1,7 @@
-﻿namespace Run00.CodeCoverageAudit.WindowsConsole
+﻿
+namespace Run00.CodeCoverageAudit.Commands
 {
-	class ProgramOptions
+	public class AnalyzeArguments
 	{
 		public string ReportPath { get; set; }
 		public int MinimumCoverage { get; set; }
