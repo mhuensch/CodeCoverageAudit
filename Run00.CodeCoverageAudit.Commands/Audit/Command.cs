@@ -1,20 +1,21 @@
 ﻿using Run00.Command;
 using System;
 
-namespace Run00.CodeCoverageAudit.Commands
+namespace Run00.CodeCoverageAudit.Commands.Audit
 {
-	public class AnalyzeCommand : CommandBase<AnalyzeArguments>
+	public class Command : CommandBase<Command, Argument>
 	{
-		public override string Name { get { return this.GetType().FullName; } }
+		public override string Name { get { return "Audit Code Coverage Report"; } }
+		public override string Description { get { return "examines the code coverage report for the percentage supplied."; } }
 
-		public AnalyzeCommand(IArgumentConverterFactory converter, ICommandLogger logger, IReportAnalyzer reportAuditer)	
+		public Command(IArgumentConverterFactory converter, ICommandLogger logger, IReportAnalyzer reportAuditer)	
 			: base(converter, logger)
 		{
 			_reportAuditer = reportAuditer;
 			_logger = logger;
 		}
 
-		protected override object Execute(AnalyzeArguments arg)
+		protected override object Execute(Argument arg)
 		{
 			_logger.Information("Analyzing: " + arg.ReportPath);
 			var result = _reportAuditer.Analyze(arg.ReportPath);
@@ -33,5 +34,7 @@ namespace Run00.CodeCoverageAudit.Commands
 
 		private IReportAnalyzer _reportAuditer;
 		private ICommandLogger _logger;
+
+
 	}
 }
